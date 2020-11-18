@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
+import axios from 'axios';
 
 function App() {
+
+  const [data, setData] = useState('');
+  const onClick = () =>{
+    axios.get('http://www.boredapi.com/api/activity/').then(res =>{
+      setData(res.data);
+    })
+
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>Bored? </h1>
+     <button onClick={onClick} className='button blue'>Fight it!</button>
+  {data && <h2>{data.activity}</h2>}
     </div>
   );
 }
