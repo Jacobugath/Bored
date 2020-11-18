@@ -6,7 +6,7 @@ function App() {
 
   const [data, setData] = useState('');
   const onClick = () =>{
-    axios.get('http://www.boredapi.com/api/activity/').then(res =>{
+    axios.get('https://www.boredapi.com/api/activity/').then(res =>{
       setData(res.data);
     })
 
